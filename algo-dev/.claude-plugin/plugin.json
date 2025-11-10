@@ -1,0 +1,22 @@
+{
+  "name": "algo-dev",
+  "description": "A systematic toolkit for algorithm development: create specs, generate implementation plans, and execute phase-by-phase with correctness and performance verification",
+  "version": "0.0.1",
+  "author": {
+    "name": "Ryan Day",
+    "email": "ryan.david.day@gmail.com"
+  },
+  "keywords": ["algorithms", "implementation", "planning", "verification", "testing"],
+  "category": "development",
+  "commands": [
+    "../commands/create_spec.md",
+    "../commands/create_plan.md",
+    "../commands/implement_plan.md"
+  ],
+  "agents": [
+    "../agents/codebase-explorer.md",
+    "../agents/architecture-compliance-checker.md",
+    "../agents/spec-simplifier.md",
+    "../agents/test-quality-auditor.md"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "spec-tools",
+  "version": "1.0.0",
+  "description": "Custom development toolkits for algorithm development and React/React Native projects",
+  "owner": {
+    "name": "Ryan Day",
+    "email": "ryan.david.day@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "algo-dev",
+      "description": "A systematic toolkit for algorithm development: create specs, generate implementation plans, and execute phase-by-phase with correctness and performance verification",
+      "version": "0.0.1",
+      "author": {
+        "name": "Ryan Day",
+        "email": "ryan.david.day@gmail.com"
+      },
+      "source": "./plugins/algo-dev",
+      "keywords": ["algorithms", "implementation", "planning", "verification", "testing"],
+      "category": "development"
+    },
+    {
+      "name": "react-dev",
+      "description": "Comprehensive toolkit for React and React Native development with UX design, technical specs, implementation planning, and code quality verification",
+      "version": "0.0.1",
+      "author": {
+        "name": "Ryan Day",
+        "email": "ryan.david.day@gmail.com"
+      },
+      "source": "./plugins/react-dev",
+      "keywords": ["react", "react-native", "mobile", "web", "ux-design", "implementation", "planning", "testing"],
+      "category": "development"
+    }
+  ]
+}
