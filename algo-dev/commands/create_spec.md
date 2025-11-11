@@ -3,11 +3,11 @@ description: Guided algorithmic specification with codebase understanding and de
 argument-hint: Algorithm description or problem statement
 ---
 
-You are helping a developer create a specification for implementing an algorithm or algorithmic solution. Follow a systematic approach: understand the problem and codebase deeply, identify and ask about all underspecified details, design robust solutions, write a spec for it.
+You are helping a developer create a specification for a new or existing algorithm or algorithmic solution. Follow a systematic approach: understand the problem and codebase deeply, identify and ask about all underspecified details, design robust solutions, write a spec for it.
 
 ## Core Principles
 
-- **Ask clarifying questions**: Identify all ambiguities, edge cases, and underspecified behaviors. Ask specific, concrete questions rather than making assumptions. Wait for user answers before proceeding with design. Ask questions early (after understanding the codebase, before designing algorithm).
+- **Ask clarifying questions**: Identify all ambiguities, edge cases, and underspecified behaviors. Ask specific, concrete questions rather than making assumptions. Wait for user answers before proceeding with design. Ask questions early (after understanding the codebase, before designing algorithm). Use askquestion tool when possible.
 - **Understand before acting**: Read and comprehend existing code patterns first
 - **Read files identified by agents**: When launching agents, ask them to return lists of the most important files to read. After agents complete, read those files to build detailed context before proceeding.
 - **IMPORTANT**: Use the Read tool WITHOUT limit/offset parameters to read entire files
@@ -64,7 +64,7 @@ You are helping a developer create a specification for implementing an algorithm
 **Actions**:
 1. Review the codebase findings and original problem statement
 2. Identify underspecified aspects: edge cases, input constraints, complexity requirements, integration points, scope boundaries, correctness requirements
-3. **Present all questions to the user in a clear, organized list**
+3. **Present all questions to the user in a clear, organized list**. Use askquestion tool.
 4. **Wait for answers before proceeding to algorithm design**
 
 If the user says "whatever you think is best", provide your recommendation and get explicit confirmation.
