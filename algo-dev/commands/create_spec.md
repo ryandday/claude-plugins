@@ -92,18 +92,25 @@ problem:
       invariants: "[example invariants]"
       explanation: "[why]"
 
-# ALGORITHMS (declarative - what we need, not how to implement)
+# CONSTANTS (define once, reference many times - eliminates duplication)
+constants:
+  CONSTANT_NAME:
+    value: [value]
+    purpose: "[what it does]"
+    file: "[optional: path/to/file.ts:line]"
+
+# ALGORITHMS (implementation details - HOW to implement)
 algorithms:
   - id: ALGO-FUNC-01
-    function: "[functionName]"
+    function: "[actualFunctionName]"  # Use real function name from codebase
     purpose: "[what this does]"
     signature:
       inputs:
         - name: "[param]"
-          type: "[type]"
+          type: "[type - consider shorthand: int8/16/24/32, float32/64, bool]"
           constraints: "[e.g., 1 <= n <= 10^5, non-null, etc]"
       output:
-        type: "[return type]"
+        type: "[return type - use shorthand when clear]"
         invariants: "[what's guaranteed about output]"
     complexity_targets:
       time: "[O(n), O(n log n), etc]"
@@ -113,26 +120,21 @@ algorithms:
       strategy: "[greedy, DP, divide & conquer, two pointers, etc]"
       key_insight: "[the main insight that makes this work]"
       steps:
-        - "[Step 1]"
-        - "[Step 2]"
+        - "[Concrete step 1 with pseudocode/formula]"
+        - "[Concrete step 2 with implementation details]"
+        - "[Step 3 - use high level HOW, not too detailed]"
     data_structures:
-      - name: "[structure name]"
-        type: "[array, hashmap, heap, tree, etc]"
+      - name: "[structure name OR 'constants' to reference constants section]"
+        type: "[array, hashmap, heap, tree, OR list of constant names like 'CONST1, CONST2']"
         purpose: "[why we need this structure]"
     edge_cases:
-      - condition: "[edge case condition]"
+      - condition: "[edge case condition - ONLY non-trivial ones]"
         handling: "[how to handle it]"
     execution_invariants:
-      - condition: "[what must always be true during execution]"
+      - condition: "[what must always be true during execution - algorithm-specific]"
         why: "[what breaks if this is violated]"
-    calls: ["ALGO-FUNC-Y"]  # Optional: what algorithms this depends on
-
-# CALL GRAPH (how algorithms relate)
-call_graph:
-  - caller: ALGO-FUNC-01
-    calls: [ALGO-FUNC-02, ALGO-FUNC-03]
-  - caller: main
-    calls: [ALGO-FUNC-01]
+    calls: ["ALGO-FUNC-Y"]  # What algorithms this depends on
+    impl: "path/to/file.ts::functionName"  # Direct link to implementation
 
 # TEST COVERAGE
 test_cases:
@@ -143,6 +145,29 @@ test_cases:
     category: "[basic/edge/performance/correctness]"
     why: "[what this validates]"
 
+# DESIGN CONSTRAINTS (system-wide design decisions affecting multiple algorithms)
+design_constraints:
+  - constraint: "[design decision that affects multiple algorithms]"
+    rationale: "[why we made this choice]"
+    affects: ["ALGO-FUNC-X", "ALGO-FUNC-Y"]
+
+# KNOWN LIMITATIONS (cross-cutting limitations spanning multiple algorithms or external code)
+known_limitations:
+  - limitation: "[limitation affecting multiple algorithms or external dependencies]"
+    description: "[detailed explanation]"
+    severity: "[critical/acceptable/data-loss/architectural]"
+    affects: ["ALGO-FUNC-X", "ALGO-FUNC-Y", "ExternalClass"]
+    workaround: "[optional: how to work around it]"
+    impact: "[what are the consequences]"
+
+# RECOMMENDED IMPROVEMENTS (future enhancements affecting multiple algorithms)
+recommended_improvements:
+  - description: "[improvement that would affect multiple algorithms]"
+    priority: "[high/medium/low]"
+    rationale: "[why this would be valuable]"
+    affects: ["ALGO-FUNC-X", "ALGO-FUNC-Y"]
+    effort: "[low/medium/high - optional]"
+
 # CORRECTNESS REASONING
 correctness:
   - algorithm: ALGO-FUNC-01
@@ -151,11 +176,41 @@ correctness:
       - [Why the approach works]
       - [Why invariants hold]
       - [Why edge cases are handled]
+      - LIMITATION: [any known limitations specific to this algorithm]
 
 notes: |
   [ONLY super important considerations that don't fit elsewhere - NOT phased plans]
   - [Critical implementation constraint or gotcha]
   - [Non-obvious algorithmic detail or optimization note]
+  ABOUT THIS SPEC STRUCTURE:
+
+  This specification uses a dual-level approach for documenting constraints and limitations:
+
+  1. ALGORITHM-SPECIFIC (in each algorithm's edge_cases/execution_invariants):
+     - Edge cases specific to that function (e.g., "value at boundaries may overflow")
+     - Execution constraints of that implementation (e.g., "no overflow checking in this function")
+     - Preconditions/postconditions for that function
+     Rule: If changing/removing this algorithm makes the concern go away, it belongs here.
+
+  2. CROSS-CUTTING (in top-level design_constraints/known_limitations):
+     - System-wide design decisions affecting multiple algorithms
+     - Limitations spanning multiple algorithms or external code
+     - Architectural inconsistencies across the codebase
+     Rule: If this affects multiple algorithms or external code, it belongs at top-level.
+
+  ---
+
+  IMPLEMENTATION FILE REFERENCES:
+  - ALGO-FUNC-01: path/to/file.ts::functionName
+
+  ADDITIONAL CALLERS (beyond main ones):
+  - Class/Module: Uses ALGO-FUNC-XX for specific purpose
+
+  ALGORITHM-SPECIFIC LIMITATIONS (already documented in algorithms above):
+  - ALGO-FUNC-01: [limitation] (in edge_cases/execution_invariants)
+
+  These are NOT repeated in the top-level known_limitations section because they are
+  specific to individual algorithms. See the algorithms above for details.
 ```
 
 ---
