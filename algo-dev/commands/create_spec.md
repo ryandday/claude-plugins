@@ -51,8 +51,6 @@ You are helping a developer create a specification for a new or existing algorit
 
 2. Once the agents return, read ALL files identified by agents COMPLETELY (no limit/offset) to build deep understanding
 3. Present comprehensive summary of findings and patterns discovered
-4. **Play completion notification**: Run `afplay /System/Library/Sounds/Glass.aiff` to notify user that exploration is complete
-
 ---
 
 ## Phase 3: Clarifying Questions
@@ -201,8 +199,6 @@ notes: |
 2. Wait for all reviews to complete before proceeding
 
 3. Present the experts' feedback to the user and apply recommendations as needed
-
-4. **Play completion notification**: Run `afplay /System/Library/Sounds/Glass.aiff` to notify user that reviews are complete
 
 ---
 
