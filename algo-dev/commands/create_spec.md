@@ -92,7 +92,6 @@ problem:
       invariants: "[example invariants]"
       explanation: "[why]"
 
-# CONSTANTS (define once, reference many times - eliminates duplication)
 constants:
   CONSTANT_NAME:
     value: [value]
@@ -110,7 +109,7 @@ algorithms:
           type: "[type - consider shorthand: int8/16/24/32, float32/64, bool]"
           constraints: "[e.g., 1 <= n <= 10^5, non-null, etc]"
       output:
-        type: "[return type - use shorthand when clear]"
+        type: "[return type]"
         invariants: "[what's guaranteed about output]"
     complexity_targets:
       time: "[O(n), O(n log n), etc]"
@@ -180,37 +179,6 @@ correctness:
 
 notes: |
   [ONLY super important considerations that don't fit elsewhere - NOT phased plans]
-  - [Critical implementation constraint or gotcha]
-  - [Non-obvious algorithmic detail or optimization note]
-  ABOUT THIS SPEC STRUCTURE:
-
-  This specification uses a dual-level approach for documenting constraints and limitations:
-
-  1. ALGORITHM-SPECIFIC (in each algorithm's edge_cases/execution_invariants):
-     - Edge cases specific to that function (e.g., "value at boundaries may overflow")
-     - Execution constraints of that implementation (e.g., "no overflow checking in this function")
-     - Preconditions/postconditions for that function
-     Rule: If changing/removing this algorithm makes the concern go away, it belongs here.
-
-  2. CROSS-CUTTING (in top-level design_constraints/known_limitations):
-     - System-wide design decisions affecting multiple algorithms
-     - Limitations spanning multiple algorithms or external code
-     - Architectural inconsistencies across the codebase
-     Rule: If this affects multiple algorithms or external code, it belongs at top-level.
-
-  ---
-
-  IMPLEMENTATION FILE REFERENCES:
-  - ALGO-FUNC-01: path/to/file.ts::functionName
-
-  ADDITIONAL CALLERS (beyond main ones):
-  - Class/Module: Uses ALGO-FUNC-XX for specific purpose
-
-  ALGORITHM-SPECIFIC LIMITATIONS (already documented in algorithms above):
-  - ALGO-FUNC-01: [limitation] (in edge_cases/execution_invariants)
-
-  These are NOT repeated in the top-level known_limitations section because they are
-  specific to individual algorithms. See the algorithms above for details.
 ```
 
 ---
