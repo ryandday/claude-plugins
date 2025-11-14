@@ -205,7 +205,11 @@ notes: |  # Optional: only include if user explicitly requests
 
 2. Wait for all reviews to complete before proceeding
 
-3. Present the experts' feedback to the user and have user decide which recommendations to apply 
+3. For each piece of feedback from the agents, use the AskUserQuestion tool to present the recommendation and ask the user how to proceed:
+   - Present the agent's finding and recommendation clearly
+   - Ask if the user wants to: apply the suggestion, skip it, or modify it
+   - For split recommendations from spec-simplifier, ask which split approach to take if multiple options were provided
+   - Apply changes based on user decisions 
 
 ---
 
