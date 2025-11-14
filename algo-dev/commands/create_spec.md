@@ -195,7 +195,8 @@ notes: |  # Optional: only include if user explicitly requests
 **Actions**:
 1. Spawn expert review agents in parallel using the Task tool (spawn ALL agents concurrently):
 
-   - **spec-reviewer** agent - Verify template compliance, specification completeness, and correctness reasoning. Check for style violations and structural issues
+   - **spec-structure-reviewer** agent - Verify template compliance, YAML structure, algorithm ordering, and style violations (tense, meta-commentary). Give it the algorithm specification template from Phase 4 verbatim.
+   - **spec-correctness-reviewer** agent - Verify algorithmic correctness, complexity analysis, completeness, and consistency
    - **spec-simplifier** agent - Determine if the spec tries to solve multiple distinct problems and should be split into separate specs
 
    Provide all agents with:
