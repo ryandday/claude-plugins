@@ -138,9 +138,10 @@ You are helping a developer create a phased implementation plan from an existing
 **Goal**: Create the implementation plan YAML file
 
 **Actions**:
-1. Write plan to `docs/specifications/YYYY_MM/<algo>-implementation-plan.yaml`
+1. Run a date command to get the current year and month in YYYY_MM format (e.g., "2025_01")
+2. Write plan to `docs/implementation_plans/<YYYY_MM>/<algo>-implementation-plan.yaml`
 
-2. Use this structure:
+3. Use this structure:
 
 ```yaml
 # algo_implementation_plan: v1

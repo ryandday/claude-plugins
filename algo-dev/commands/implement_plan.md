@@ -9,7 +9,7 @@ You are helping a developer implement a specific phase from an existing algorith
 
 - **Auto-fix everything**: NEVER prompt user for compile/lint/test/format failures - fix them all
 - **Ask for help sparingly**: Only ask user for guidance on implementation tasks after >4 failed attempts
-- **Update algo-plan.yaml**: Mark phases as in_progress and completed
+- **Update <algo>-implementation-plan.yaml**: Mark phases as in_progress and completed
 - **Use TodoWrite**: Track all task progress throughout
 - **Verify thoroughly**: Run all automated checks and correctness/performance tests
 
@@ -21,15 +21,15 @@ You are helping a developer implement a specific phase from an existing algorith
 
 **Actions**:
 1. Create todo list with all phases of this document
-2. Look for algo-plan.yaml file in `docs/specifications/` (search by pattern if needed)
-3. Read algo-plan.yaml and algo.yaml (referenced in plan) COMPLETELY
+2. Look for <algo>-implementation-plan.yaml file in `docs/implementation_plans/YYYY_MM/` (search by pattern if needed)
+3. Read <algo>-implementation-plan.yaml and the algo spec (referenced in plan) COMPLETELY
 4. Identify target phase. If unclear, find first phase with no `status` field (not started)
 5. If phase has `depends_on: [PHASE-A, PHASE-B]`, verify those phases have `status: completed`
 6. Show phase summary:
     - Phase name and what it implements
     - Number of tasks
     - Verification strategy
-7. Update algo-plan.yaml: set phase `status: in_progress`
+7. Update <algo>-implementation-plan.yaml: set phase `status: in_progress`
 
 ---
 
@@ -108,7 +108,7 @@ You are helping a developer implement a specific phase from an existing algorith
    - If optimization phase: launch performance analyzer agent
 5. Wait for all review agents to complete
 6. Address any critical issues identified by review agents
-7. Review phase's `verification` section from algo-plan.yaml
+7. Review phase's `verification` section from <algo>-implementation-plan.yaml
 8. Execute verification as specified:
    - Run correctness tests specified in `correctness_test`
    - Run performance tests specified in `performance_test`
@@ -118,7 +118,7 @@ You are helping a developer implement a specific phase from an existing algorith
    - Performance: Actual vs target complexity, benchmark results
 10. **Play completion notification**: Run `afplay /System/Library/Sounds/Glass.aiff` to notify user that verification is complete
 11. Wait for user confirmation that verification is acceptable
-12. Update algo-plan.yaml: set phase `status: completed`
+12. Update <algo>-implementation-plan.yaml: set phase `status: completed`
 13. Suggest next available phase and wait for user input
 
 ---
@@ -131,7 +131,7 @@ You are helping a developer implement a specific phase from an existing algorith
 
 **Complete Context**: Always read the full spec sections for tasks. Don't guess at implementation details - read ALGO-FUNC-*, TEST-* references completely.
 
-**Plan Updates**: Keep algo-plan.yaml in sync. Mark phases as `in_progress` when starting, `completed` when done.
+**Plan Updates**: Keep <algo>-implementation-plan.yaml in sync. Mark phases as `in_progress` when starting, `completed` when done.
 
 **Correctness First**: Every phase must pass correctness tests before performance optimization. Execute verification tests and confirm results with user.
 
