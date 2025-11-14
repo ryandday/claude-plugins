@@ -109,7 +109,6 @@ algorithms:
   - id: [ALGO-NAME-functionName-01]  # e.g., BINARY-SEARCH-findPivot-01
     calls: ["ALGO-NAME-helperFunc-01"]  # What algorithms this depends on
     impl: "path/to/file.ts::functionName"  # Direct link to implementation
-    function: "[actualFunctionName]"  # Use real function name from codebase
     purpose: "[what this does]"
     signature:
       inputs:
@@ -183,8 +182,8 @@ correctness:
       - [Why edge cases are handled]
       - LIMITATION: [any known limitations specific to this algorithm]
 
-notes: |
-  [ONLY super important considerations that don't fit elsewhere - DO NOT PUT phased implementation plans. This is not a planning document. It is a spec for the behavior]
+notes: |  # Optional: only include if user explicitly requests
+  [User-requested notes only]
 ```
 
 ---
