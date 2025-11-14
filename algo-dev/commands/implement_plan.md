@@ -104,7 +104,7 @@ You are helping a developer implement a specific phase from an existing algorith
    - **comment-analyzer**: Comment accuracy if documentation added or changed
    - **silent-failure-hunter**: Error handling if error logic changed
    - **type-design-analyzer**: Type design if types added/modified
-   - **code-simplifier**: Code clarity polish (run after others pass)
+   - **code-simplifier**: Code clarity polish
 
 5. Wait for all review agents to complete
 6. Use AskUserQuestion to ask which feedback to address and how
