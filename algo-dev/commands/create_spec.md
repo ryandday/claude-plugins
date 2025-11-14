@@ -118,7 +118,7 @@ algorithms:
       output:
         type: "[return type]"
         invariants: "[what's guaranteed about output]"
-    complexity_targets:
+    complexity_targets:  # Optional: omit for simple transformations with trivial complexity
       time: "[O(n), O(n log n), etc]"
       space: "[O(1), O(n), etc]"
       justification: "[why this is optimal/acceptable]"
