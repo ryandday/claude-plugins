@@ -99,26 +99,27 @@ You are helping a developer implement a specific phase from an existing algorith
    - Keep fixing until all checks pass
    - No limit on attempts for automated checks
 4. Once all checks pass, launch applicable review agents in parallel:
-   - **code-reviewer**: General code quality, guidelines compliance, bug detection
+   - **code-reviewer**: Always - general code quality, guidelines compliance, bug detection
    - **test-analyzer**: Test coverage quality if tests written
-   - **comment-analyzer**: Comment accuracy if documentation added
+   - **comment-analyzer**: Comment accuracy if documentation added or changed
    - **silent-failure-hunter**: Error handling if error logic changed
    - **type-design-analyzer**: Type design if types added/modified
    - **code-simplifier**: Code clarity polish (run after others pass)
 
 5. Wait for all review agents to complete
-6. Address any critical issues identified by review agents
-7. Review phase's `verification` section from <algo>-implementation-plan.yaml
-8. Execute verification as specified:
+6. Use AskUserQuestion to ask which feedback to address and how
+7. Write user's decisions to end of <algo>-implementation-plan.yaml
+8. Review phase's `verification` section from <algo>-implementation-plan.yaml
+9. Execute verification as specified:
    - Run correctness tests specified in `correctness_test`
    - Run performance tests specified in `performance_test`
    - Use test data from `test_data` if specified
-9. Present verification results to user:
+10. Present verification results to user:
    - Correctness: Which test cases passed/failed
    - Performance: Actual vs target complexity, benchmark results
-10. Wait for user confirmation that verification is acceptable
-11. Update <algo>-implementation-plan.yaml: set phase `status: completed`
-12. Suggest next available phase and wait for user input
+11. Wait for user confirmation that verification is acceptable
+12. Update <algo>-implementation-plan.yaml: set phase `status: completed`
+13. Suggest next available phase and wait for user input
 
 ---
 
