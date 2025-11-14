@@ -1,10 +1,6 @@
 ---
 name: spec-reviewer
-description: Use this agent when you need to review algorithm specifications for adherence to the spec template, completeness, and quality. It will check for structure violations, missing sections, unclear reasoning, and ensure specs follow the established template in create_spec.md. The agent needs to know which spec file to review - typically a newly created or modified YAML file in docs/specifications/. \n\nExamples:
-<example>Context: The user has just created a new algorithm specification.
-user: "I've created the spec for the binary search algorithm. Can you check if everything looks good?"
-assistant: "I'll use the Task tool to launch the spec-reviewer agent to review your specification."
-<commentary>Since the user has completed a spec and wants validation, use the spec-reviewer agent to ensure the spec meets template standards.</commentary></example>
+description: Use this agent when you need to review algorithm specifications for adherence to the spec template, completeness, and quality. It will check for structure violations, missing sections, unclear reasoning, and ensure specs follow the established template in create_spec.md. The agent needs to know which spec file to review - typically a newly created or modified YAML file in docs/specifications/. \n\nExamples:\n<example>\nContext: The user has just created a new algorithm specification.\nuser: "I've created the spec for the binary search algorithm. Can you check if everything looks good?"\nassistant: "I'll use the Task tool to launch the spec-reviewer agent to review your specification."\n<commentary>\nSince the user has completed a spec and wants validation, use the spec-reviewer agent to ensure the spec meets template standards.\n</commentary>\n</example>
 model: sonnet
 color: green
 ---
