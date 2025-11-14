@@ -77,10 +77,9 @@ You are helping a developer implement a specific phase from an existing algorith
       - Fix any issues immediately
    6. If task fails repeatedly:
       - Attempt to fix and retry automatically
-      - After 4 failed attempts on the same issue, ask user: "This task keeps failing: [description]. What guidance can you provide? [Or type 'skip' to skip this task]"
+      - After 4 failed attempts on the same issue, ask user: "This task keeps failing: [description]. What guidance can you provide?"
       - Incorporate user guidance and continue
    7. Mark task as completed in TodoWrite
-3. **Play completion notification**: Run `afplay /System/Library/Sounds/Glass.aiff` to notify user that all tasks are complete
 
 ---
 
@@ -116,10 +115,9 @@ You are helping a developer implement a specific phase from an existing algorith
 9. Present verification results to user:
    - Correctness: Which test cases passed/failed
    - Performance: Actual vs target complexity, benchmark results
-10. **Play completion notification**: Run `afplay /System/Library/Sounds/Glass.aiff` to notify user that verification is complete
-11. Wait for user confirmation that verification is acceptable
-12. Update <algo>-implementation-plan.yaml: set phase `status: completed`
-13. Suggest next available phase and wait for user input
+10. Wait for user confirmation that verification is acceptable
+11. Update <algo>-implementation-plan.yaml: set phase `status: completed`
+12. Suggest next available phase and wait for user input
 
 ---
 
