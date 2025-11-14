@@ -100,9 +100,9 @@ You are helping a developer implement a specific phase from an existing algorith
    - No limit on attempts for automated checks
 4. Once all checks pass, launch applicable review agents in parallel:
    - **code-reviewer**: Always - general code quality, guidelines compliance, bug detection
-   - **test-analyzer**: Test coverage quality if tests written
-   - **comment-analyzer**: Comment accuracy if documentation added or changed
-   - **silent-failure-hunter**: Error handling if error logic changed
+   - **test-analyzer**: Always - Test coverage quality
+   - **comment-analyzer**: Always - Comment accuracy
+   - **silent-failure-hunter**: Always - Error handling
    - **type-design-analyzer**: Type design if types added/modified
    - **code-simplifier**: Code clarity polish
 
