@@ -8,6 +8,7 @@ You are helping a developer create a specification for a new or existing algorit
 ## Core Principles
 
 - **Ask clarifying questions**: Identify all ambiguities, edge cases, and underspecified behaviors. Ask specific, concrete questions rather than making assumptions. Wait for user answers before proceeding with design. Ask questions early (after understanding the codebase, before designing algorithm). Use askquestion tool when possible.
+- **Describe Behavior, Not Plans**: Specs define WHAT the algorithm does and WHY it works, never project history or future implementation. Write "the algorithm computes X" not "we will implement X" or "user wants X".
 - **Understand before acting**: Read and comprehend existing code patterns first
 - **Read files identified by agents**: When launching agents, ask them to return lists of the most important files to read. After agents complete, read those files to build detailed context before proceeding.
 - **IMPORTANT**: Use the Read tool WITHOUT limit/offset parameters to read entire files
@@ -74,7 +75,12 @@ If the user says "whatever you think is best", provide your recommendation and g
 **Actions**:
 1. Write the specification to `docs/specifications/<spec-description>.yaml`
 
-2. Use this template structure:
+2. **IMPORTANT**: Write the spec in present tense as if describing existing behavior. Avoid:
+   - ❌ "New algorithm that will...", "User requested..."
+   - ❌ "We will implement...", "This needs to..."
+   - ✅ "The algorithm computes...", "Rationale: minimizes space complexity"
+
+3. Use this template structure:
 
 ```yaml
 # algo_spec: v1
@@ -130,6 +136,13 @@ algorithms:
     execution_invariants:
       - condition: "[what must always be true during execution - algorithm-specific]"
         why: "[what breaks if this is violated]"
+    correctness:
+      argument: |
+        [Informal proof or reasoning why this algorithm is correct]
+        - [Why the approach works]
+        - [Why invariants hold]
+        - [Why edge cases are handled]
+      limitations: "[any known limitations specific to this algorithm]"
     calls: ["ALGO-NAME-helperFunc-01"]  # What algorithms this depends on
     impl: "path/to/file.ts::functionName"  # Direct link to implementation
 
@@ -164,16 +177,6 @@ recommended_improvements:
     rationale: "[why this would be valuable]"
     affects: ["ALGO-NAME-funcX-01", "ALGO-NAME-funcY-02"]
     effort: "[low/medium/high - optional]"
-
-# CORRECTNESS REASONING
-correctness:
-  - algorithm: ALGO-NAME-functionName-01
-    argument: |
-      [Informal proof or reasoning why this algorithm is correct]
-      - [Why the approach works]
-      - [Why invariants hold]
-      - [Why edge cases are handled]
-      - LIMITATION: [any known limitations specific to this algorithm]
 
 notes: |
   [ONLY super important considerations that don't fit elsewhere - DO NOT PUT phased implementation plans. This is not a planning document. It is a spec for the behavior]
