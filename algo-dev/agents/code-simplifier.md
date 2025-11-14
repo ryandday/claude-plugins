@@ -8,7 +8,7 @@ This agent automatically refines recently modified code to enhance clarity, cons
 
 **Project Standards Application**: Implementation follows established conventions and consistent patterns found in the codebase.
 
-**Clarity Enhancement**: Code is simplified through reduced complexity, eliminated redundancy, improved naming, and "avoiding nested ternary operators—preferring switch statements or if/else chains."
+**Clarity Enhancement**: Code is simplified through reduced complexity, eliminated redundancy, improved naming, and "avoiding nested ternary operators—preferring switch statements or unnested if/else chains."
 
 **Scope Limitation**: Refinements target recently modified sections unless broader review is requested.
 

@@ -98,9 +98,14 @@ You are helping a developer implement a specific phase from an existing algorith
    - NEVER prompt user about these failures
    - Keep fixing until all checks pass
    - No limit on attempts for automated checks
-4. Once all checks pass, launch review agents:
-   - Always: launch architecture-compliance-checker agent
-   - Always: launch test-quality-auditor (if tests written)
+4. Once all checks pass, launch applicable review agents in parallel:
+   - **code-reviewer**: General code quality, guidelines compliance, bug detection
+   - **test-analyzer**: Test coverage quality if tests written
+   - **comment-analyzer**: Comment accuracy if documentation added
+   - **silent-failure-hunter**: Error handling if error logic changed
+   - **type-design-analyzer**: Type design if types added/modified
+   - **code-simplifier**: Code clarity polish (run after others pass)
+
 5. Wait for all review agents to complete
 6. Address any critical issues identified by review agents
 7. Review phase's `verification` section from <algo>-implementation-plan.yaml
