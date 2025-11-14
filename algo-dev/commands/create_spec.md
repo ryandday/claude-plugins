@@ -72,7 +72,7 @@ If the user says "whatever you think is best", provide your recommendation and g
 **Goal**: Create comprehensive algorithm specification document
 
 **Actions**:
-1. Write the specification to `docs/specifications/YYYY_MM/description/algo.yaml`
+1. Write the specification to `docs/specifications/<spec-description>.yaml`
 
 2. Use this template structure:
 
@@ -176,7 +176,7 @@ correctness:
       - LIMITATION: [any known limitations specific to this algorithm]
 
 notes: |
-  [ONLY super important considerations that don't fit elsewhere - NOT phased plans]
+  [ONLY super important considerations that don't fit elsewhere - DO NOT PUT phased implementation plans. This is not a planning document. It is a spec for the behavior]
 ```
 
 ---
@@ -188,8 +188,6 @@ notes: |
 **Actions**:
 1. Spawn expert review agents in parallel using the Task tool (spawn ALL agents concurrently):
 
-   - **architecture-compliance-checker** agent - Review code organization, ensure patterns match existing conventions, check integration points
-
    - **spec-simplifier** agent - Identify over-engineering and unnecessary complexity. Look for simpler algorithmic approaches, unnecessary data structures, and opportunities to leverage existing helper functions
 
    Provide all agents with:
@@ -198,7 +196,7 @@ notes: |
 
 2. Wait for all reviews to complete before proceeding
 
-3. Present the experts' feedback to the user and apply recommendations as needed
+3. Present the experts' feedback to the user and have user decide which recommendations to apply 
 
 ---
 
