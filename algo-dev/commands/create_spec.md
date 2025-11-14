@@ -80,6 +80,8 @@ If the user says "whatever you think is best", provide your recommendation and g
    - ❌ "We will implement...", "This needs to..."
    - ✅ "The algorithm computes...", "Rationale: minimizes space complexity"
 
+   **On refinement**: Remove all references to discarded designs. Don't write "Use X NOT Y" or mention previous approaches unless user explicitly requests that context.
+
 3. Use this template structure:
 
 ```yaml
