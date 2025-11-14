@@ -1,9 +1,9 @@
 ---
-description: Guided algorithm implementation plan creation
-argument-hint: Algorithm spec file path
+description: Guided implementation plan creation
+argument-hint: Spec file path
 ---
 
-You are helping a developer create a phased implementation plan from an existing algorithm specification. Follow a systematic approach: understand the spec deeply, analyze dependencies, create parallelizable phases with verification strategies.
+You are helping a developer create a phased implementation plan from an existing specification. Follow a systematic approach: understand the spec deeply, analyze dependencies, create parallelizable phases with verification strategies.
 
 ## Core Principles
 
@@ -22,14 +22,14 @@ You are helping a developer create a phased implementation plan from an existing
 
 **Actions**:
 1. Create todo list with all 8 phases (Discovery, Codebase Analysis, Dependency Analysis, Phase Design, Task Generation, Verification Strategy, Write Plan Specification, Validation)
-2. Parse arguments to get algorithm spec path
+2. Parse arguments to get spec path
 3. Read the specification file COMPLETELY (no limit/offset)
 4. Validate that spec is complete:
    - Problem statement is clear with examples
-   - Algorithms are well-defined with clear purposes
-   - Signatures, complexity targets, and approaches are specified
+   - Components/functions are well-defined with clear purposes
+   - Signatures, requirements, and approaches are specified
    - Test cases cover basic, edge, and performance scenarios
-   - Call graph shows algorithm relationships
+   - Dependencies between components are documented
 5. If spec is incomplete or has inconsistencies, stop and inform the user
 6. Summarize what will be implemented and confirm with user
 
@@ -37,17 +37,17 @@ You are helping a developer create a phased implementation plan from an existing
 
 ## Phase 2: Codebase Analysis
 
-**Goal**: Determine which algorithms are new, modifications, or extractions by analyzing the codebase
+**Goal**: Determine which components are new, modifications, or extractions by analyzing the codebase
 
 **Actions**:
-1. Extract all algorithms from spec (from `algorithms` section)
-2. For each algorithm, search the codebase to determine:
-   - **New**: Function doesn't exist yet
-   - **Modified**: Function exists but needs algorithmic changes
+1. Extract all components from spec
+2. For each component, search the codebase to determine:
+   - **New**: Component doesn't exist yet
+   - **Modified**: Component exists but needs changes
    - **Extracted**: Common logic that should be pulled out from existing code
 3. Document findings:
-   - Which algorithms are truly new implementations
-   - Which existing functions need to be modified and where they are
+   - Which components are truly new implementations
+   - Which existing code needs to be modified and where it is
    - Which logic should be extracted into helper functions
 4. Present codebase analysis to user
 
@@ -55,16 +55,16 @@ You are helping a developer create a phased implementation plan from an existing
 
 ## Phase 3: Dependency Analysis
 
-**Goal**: Understand which algorithms can be built in parallel vs sequentially
+**Goal**: Understand which components can be built in parallel vs sequentially
 
 **Actions**:
-1. Analyze dependencies from spec's `call_graph` section and findings from Phase 2:
-   - Which algorithms call other algorithms?
-   - Which modified algorithms depend on new helper functions?
-   - Which test cases depend on which algorithms being complete?
+1. Analyze dependencies from spec and findings from Phase 2:
+   - Which components depend on other components?
+   - Which modified components depend on new helper functions?
+   - Which test cases depend on which components being complete?
    - Are there shared data structures or utilities needed?
 2. Build dependency map
-3. Identify clusters of related algorithms that form logical implementation units
+3. Identify clusters of related components that form logical implementation units
 4. Present dependency findings to user
 
 ---
@@ -74,14 +74,14 @@ You are helping a developer create a phased implementation plan from an existing
 **Goal**: Group work into parallelizable implementation phases
 
 **Actions**:
-1. Group related algorithms into logical phases
+1. Group related components into logical phases
 2. Prefer fewer, larger phases over many small phases:
-   - Combine related algorithms that can be implemented together
+   - Combine related components that can be implemented together
    - Only split into separate phases when there are true blocking dependencies or when a phase would become too large to test effectively
    - Aim for 3-5 phases total when possible, not 10+ micro-phases
 3. For each phase, determine:
    - What functionality it delivers
-   - Which algorithms it implements (ALGO-FUNC-*)
+   - Which components it implements
    - What it depends on (blocking dependencies only)
    - How it can be verified (correctness and performance tests)
 4. Optimize for parallelization:
@@ -98,15 +98,15 @@ You are helping a developer create a phased implementation plan from an existing
 **Goal**: Generate plain English task lists for each phase
 
 **Actions**:
-1. For each phase, extract referenced algorithm IDs
+1. For each phase, extract referenced component IDs
 2. Generate tasks by walking through implementation needs based on Phase 2 codebase analysis:
-   - New functions to create (algorithms identified as new)
-   - Existing functions to modify (algorithms identified as modifications)
-   - Helper functions to extract (algorithms identified as extractions)
+   - New components to create (identified as new)
+   - Existing components to modify (identified as modifications)
+   - Helper functions to extract (identified as extractions)
    - Data structures to implement
    - Test cases to write (from test_cases section)
    - Performance benchmarks to create
-3. Order tasks logically (helpers → main algorithms → modifications → tests → benchmarks)
+3. Order tasks logically (helpers → main components → modifications → tests → benchmarks)
 4. Keep tasks concrete and actionable
 5. Include spec ID references in parentheses
 
@@ -119,12 +119,12 @@ You are helping a developer create a phased implementation plan from an existing
 **Actions**:
 1. For each phase, determine verification approach:
    - Correctness tests: Which test cases validate this phase?
-   - Performance tests: How to verify complexity targets?
-   - Integration tests: How algorithms work together?
+   - Performance tests: How to verify performance targets?
+   - Integration tests: How components work together?
    - Edge case coverage: Which edge cases are tested?
 2. Add `verification` section to each phase with:
-   - `correctness_test`: How to verify algorithm correctness
-   - `performance_test`: How to validate complexity targets
+   - `correctness_test`: How to verify correctness
+   - `performance_test`: How to validate performance targets
    - `test_data`: What test inputs to use (if needed)
    - `temporary_stubs`: Temporary mocks/stubs (if needed)
    - `workaround`: Known limitations during this phase (if needed)
@@ -139,56 +139,56 @@ You are helping a developer create a phased implementation plan from an existing
 
 **Actions**:
 1. Run a date command to get the current year and month in YYYY_MM format (e.g., "2025_01")
-2. Write plan to `docs/implementation_plans/<YYYY_MM>/<algo>-implementation-plan.yaml`
+2. Write plan to `docs/implementation_plans/<YYYY_MM>/<name>-implementation-plan.yaml`
 
 3. Use this structure:
 
 ```yaml
-# algo_implementation_plan: v1
-id: PLAN-ALGO-[DESCRIPTION]
+# implementation_plan: v1
+id: PLAN-[DESCRIPTION]
 title: [Plan Title]
 created: YYYY-MM-DD
-algo_spec: ALGO-[ID]
+spec: [SPEC-ID]
 
 phases:
   - id: PHASE-1
     name: "[Phase Name]"
-    implements: [ALGO-FUNC-01, ALGO-FUNC-03]  # Which algorithms
+    implements: [COMP-01, COMP-03]  # Which components
     depends_on: []
     tasks:
-      - "Implement helper function [name] (ALGO-FUNC-03)"
-      - "Implement main algorithm [name] (ALGO-FUNC-01)"
+      - "Implement helper function [name] (COMP-03)"
+      - "Implement main component [name] (COMP-01)"
       - "Add test cases (TEST-01, TEST-02)"
     verification:
       correctness_test: "Run test cases TEST-01, TEST-02 - expect all pass"
-      performance_test: "Benchmark with input size 10^5 - expect O(n) behavior"
+      performance_test: "Benchmark with test data - expect targets met"
       test_data: "Use provided examples from spec"  # optional
 
   - id: PHASE-2
     name: "[Another Phase]"
-    implements: [ALGO-FUNC-02]
+    implements: [COMP-02]
     depends_on: []  # parallelizable with PHASE-1
     tasks:
-      - "Implement algorithm [name] (ALGO-FUNC-02)"
+      - "Implement component [name] (COMP-02)"
       - "Add performance benchmarks"
     verification:
       correctness_test: "Run test cases TEST-03, TEST-04"
-      performance_test: "Compare against baseline - expect 10x speedup"
-      temporary_stubs: "Stub out ALGO-FUNC-01 calls for now"  # optional
+      performance_test: "Compare against baseline - expect targets met"
+      temporary_stubs: "Stub out COMP-01 calls for now"  # optional
       workaround: "Won't integrate with PHASE-1 until PHASE-3"  # optional
 
   - id: PHASE-3
     name: "Integration & Optimization"
-    implements: [ALGO-FUNC-04]
+    implements: [COMP-04]
     depends_on: [PHASE-1, PHASE-2]
     tasks:
-      - "Wire up algorithm calls between PHASE-1 and PHASE-2"
+      - "Wire up component calls between PHASE-1 and PHASE-2"
       - "Remove temporary stubs from PHASE-2"
       - "End-to-end correctness testing"
       - "Full performance benchmark suite"
     verification:
       correctness_test: "Run all test cases - expect 100% pass"
-      performance_test: "Benchmark full call graph - verify complexity targets met"
+      performance_test: "Benchmark full integration - verify targets met"
       cleanup: "All temporary stubs removed"
 ```
 
@@ -200,7 +200,7 @@ phases:
 
 **Actions**:
 1. Validate coverage:
-   - Every algorithm from spec is in some phase's `implements`
+   - Every component from spec is in some phase's `implements`
    - All test cases are assigned to phases
    - All implementation items from Phase 2 analysis are covered in tasks
 2. Check for issues:
@@ -216,11 +216,11 @@ phases:
 
 ## Key Principles
 
-**Thin Plan**: The plan is orchestration only. All details live in algorithm spec. Tasks reference spec IDs heavily.
+**Thin Plan**: The plan is orchestration only. All details live in spec. Tasks reference spec IDs heavily.
 
 **Parallelization**: Maximize parallel work. Only add `depends_on` for true blocking dependencies. Use temporary stubs/mocks to enable parallel development.
 
-**Algorithm-Centric**: Phases deliver vertical slices of functionality - complete algorithms with their tests, not just "write all helpers" then "write all main functions".
+**Component-Centric**: Phases deliver vertical slices of functionality - complete components with their tests, not just "write all helpers" then "write all main functions".
 
 **Minimize Phases**: Prefer fewer, larger phases (3-5 total) over many small phases. Combine related work unless there are blocking dependencies or testability concerns.
 
