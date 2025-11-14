@@ -136,13 +136,6 @@ algorithms:
     execution_invariants:
       - condition: "[what must always be true during execution - algorithm-specific]"
         why: "[what breaks if this is violated]"
-    correctness:
-      argument: |
-        [Informal proof or reasoning why this algorithm is correct]
-        - [Why the approach works]
-        - [Why invariants hold]
-        - [Why edge cases are handled]
-      limitations: "[any known limitations specific to this algorithm]"
     calls: ["ALGO-NAME-helperFunc-01"]  # What algorithms this depends on
     impl: "path/to/file.ts::functionName"  # Direct link to implementation
 
@@ -177,6 +170,16 @@ recommended_improvements:
     rationale: "[why this would be valuable]"
     affects: ["ALGO-NAME-funcX-01", "ALGO-NAME-funcY-02"]
     effort: "[low/medium/high - optional]"
+
+# CORRECTNESS REASONING
+correctness:
+  - algorithm: ALGO-NAME-functionName-01
+    argument: |
+      [Informal proof or reasoning why this algorithm is correct]
+      - [Why the approach works]
+      - [Why invariants hold]
+      - [Why edge cases are handled]
+      - LIMITATION: [any known limitations specific to this algorithm]
 
 notes: |
   [ONLY super important considerations that don't fit elsewhere - DO NOT PUT phased implementation plans. This is not a planning document. It is a spec for the behavior]
