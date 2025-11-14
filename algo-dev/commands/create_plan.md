@@ -138,7 +138,7 @@ You are helping a developer create a phased implementation plan from an existing
 **Goal**: Create the implementation plan YAML file
 
 **Actions**:
-1. Write plan to `docs/specifications/YYYY_MM/description/algo-plan.yaml`
+1. Write plan to `docs/specifications/YYYY_MM/<algo>-implementation-plan.yaml`
 
 2. Use this structure:
 
