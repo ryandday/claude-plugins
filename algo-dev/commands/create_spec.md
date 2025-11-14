@@ -98,7 +98,7 @@ constants:
 
 # ALGORITHMS (implementation details - HOW to implement)
 algorithms:
-  - id: ALGO-FUNC-01
+  - id: [ALGO-NAME-functionName-01]  # e.g., BINARY-SEARCH-findPivot-01
     function: "[actualFunctionName]"  # Use real function name from codebase
     purpose: "[what this does]"
     signature:
@@ -130,13 +130,13 @@ algorithms:
     execution_invariants:
       - condition: "[what must always be true during execution - algorithm-specific]"
         why: "[what breaks if this is violated]"
-    calls: ["ALGO-FUNC-Y"]  # What algorithms this depends on
+    calls: ["ALGO-NAME-helperFunc-01"]  # What algorithms this depends on
     impl: "path/to/file.ts::functionName"  # Direct link to implementation
 
 # TEST COVERAGE
 test_cases:
   - id: TEST-01
-    tests: ALGO-FUNC-01
+    tests: [ALGO-NAME-functionName-01]
     input: "[test input]"
     expected: "[expected output]"
     category: "[basic/edge/performance/correctness]"
@@ -146,14 +146,14 @@ test_cases:
 design_constraints:
   - constraint: "[design decision that affects multiple algorithms]"
     rationale: "[why we made this choice]"
-    affects: ["ALGO-FUNC-X", "ALGO-FUNC-Y"]
+    affects: ["ALGO-NAME-funcX-01", "ALGO-NAME-funcY-02"]
 
 # KNOWN LIMITATIONS (cross-cutting limitations spanning multiple algorithms or external code)
 known_limitations:
   - limitation: "[limitation affecting multiple algorithms or external dependencies]"
     description: "[detailed explanation]"
     severity: "[critical/acceptable/data-loss/architectural]"
-    affects: ["ALGO-FUNC-X", "ALGO-FUNC-Y", "ExternalClass"]
+    affects: ["ALGO-NAME-funcX-01", "ALGO-NAME-funcY-02", "ExternalClass"]
     workaround: "[optional: how to work around it]"
     impact: "[what are the consequences]"
 
@@ -162,12 +162,12 @@ recommended_improvements:
   - description: "[improvement that would affect multiple algorithms]"
     priority: "[high/medium/low]"
     rationale: "[why this would be valuable]"
-    affects: ["ALGO-FUNC-X", "ALGO-FUNC-Y"]
+    affects: ["ALGO-NAME-funcX-01", "ALGO-NAME-funcY-02"]
     effort: "[low/medium/high - optional]"
 
 # CORRECTNESS REASONING
 correctness:
-  - algorithm: ALGO-FUNC-01
+  - algorithm: ALGO-NAME-functionName-01
     argument: |
       [Informal proof or reasoning why this algorithm is correct]
       - [Why the approach works]
