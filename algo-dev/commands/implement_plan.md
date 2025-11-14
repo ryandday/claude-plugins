@@ -93,18 +93,14 @@ You are helping a developer implement a specific phase from an existing algorith
    - Lint check
    - Test suite (correctness tests)
    - Format check
+   - Any other checks specified by the plan
 2. Fix ALL automated check failures:
    - NEVER prompt user about these failures
    - Keep fixing until all checks pass
    - No limit on attempts for automated checks
-3. Run performance verification:
-   - Execute performance benchmarks from verification section
-   - Verify complexity targets are met
-   - If performance doesn't meet targets, optimize and retry
 4. Once all checks pass, launch review agents:
    - Always: launch architecture-compliance-checker agent
    - Always: launch test-quality-auditor (if tests written)
-   - If optimization phase: launch performance analyzer agent
 5. Wait for all review agents to complete
 6. Address any critical issues identified by review agents
 7. Review phase's `verification` section from <algo>-implementation-plan.yaml
