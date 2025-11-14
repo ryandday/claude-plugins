@@ -104,9 +104,10 @@ constants:
     purpose: "[what it does]"
     file: "[optional: path/to/file.ts:line]"
 
-# ALGORITHMS (implementation details - HOW to implement)
 algorithms:
   - id: [ALGO-NAME-functionName-01]  # e.g., BINARY-SEARCH-findPivot-01
+    calls: ["ALGO-NAME-helperFunc-01"]  # What algorithms this depends on
+    impl: "path/to/file.ts::functionName"  # Direct link to implementation
     function: "[actualFunctionName]"  # Use real function name from codebase
     purpose: "[what this does]"
     signature:
@@ -138,8 +139,6 @@ algorithms:
     execution_invariants:
       - condition: "[what must always be true during execution - algorithm-specific]"
         why: "[what breaks if this is violated]"
-    calls: ["ALGO-NAME-helperFunc-01"]  # What algorithms this depends on
-    impl: "path/to/file.ts::functionName"  # Direct link to implementation
 
 # TEST COVERAGE
 test_cases:
