@@ -83,6 +83,7 @@ If the user says "whatever you think is best", provide your recommendation and g
    **On refinement**: Remove all references to discarded designs. Don't write "Use X NOT Y" or mention previous approaches unless user explicitly requests that context.
 
 3. Use this template structure:
+   - **Algorithm ordering**: List algorithms in call-graph order (callers before callees)
 
 ```yaml
 # algo_spec: v1
