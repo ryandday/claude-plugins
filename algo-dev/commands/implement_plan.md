@@ -108,6 +108,8 @@ You are helping a developer implement a specific phase from an existing algorith
 
 5. Wait for all review agents to complete
 6. Use AskUserQuestion to ask which feedback to address and how
+   - For each piece of feedback, include "Let's discuss after" as one of the options
+   - Example options: "Apply now", "Skip", "Let's discuss after"
 7. Write user's decisions to end of <algo>-implementation-plan.yaml
 8. Review phase's `verification` section from <algo>-implementation-plan.yaml
 9. Execute verification as specified:
