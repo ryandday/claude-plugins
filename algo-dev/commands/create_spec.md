@@ -7,7 +7,7 @@ You are helping a developer create a specification for a new or existing algorit
 
 ## Core Principles
 
-- **Ask clarifying questions**: Identify all ambiguities, edge cases, and underspecified behaviors. Ask specific, concrete questions rather than making assumptions. Wait for user answers before proceeding with design. Ask questions early (after understanding the codebase, before designing algorithm). Use askquestion tool when possible.
+- **Ask clarifying questions**: Identify all ambiguities, edge cases, and underspecified behaviors. Ask specific, concrete questions rather than making assumptions. Wait for user answers before proceeding with design. Ask questions early (after understanding the codebase, before designing algorithm). Always use AskUserQuestion tool for the clarifying questions.
 - **Describe Behavior, Not Plans**: Specs define WHAT the algorithm does and WHY it works, never project history or future implementation. Write "the algorithm computes X" not "we will implement X" or "user wants X".
 - **Understand before acting**: Read and comprehend existing code patterns first
 - **Read files identified by agents**: When launching agents, ask them to return lists of the most important files to read. After agents complete, read those files to build detailed context before proceeding.
@@ -24,7 +24,7 @@ You are helping a developer create a specification for a new or existing algorit
 
 **Actions**:
 1. Create todo list with all phases
-2. If problem statement is unclear, ask user for:
+2. If problem statement is unclear, ask user with the AskQuestionTool for:
     - What problem are we solving?
     - What are the inputs and expected outputs?
     - Any performance constraints or requirements?
@@ -63,7 +63,7 @@ You are helping a developer create a specification for a new or existing algorit
 **Actions**:
 1. Review the codebase findings and original problem statement
 2. Identify underspecified aspects: edge cases, input constraints, complexity requirements, integration points, scope boundaries, correctness requirements
-3. **Present all questions to the user in a clear, organized list**. Use askquestion tool.
+3. **Present all questions to the user in a clear, organized list**. Use AskUserQuestion tool.
 4. **Wait for answers before proceeding to algorithm design**
 
 If the user says "whatever you think is best", provide your recommendation and get explicit confirmation.
