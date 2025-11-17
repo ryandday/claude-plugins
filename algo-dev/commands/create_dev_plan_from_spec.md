@@ -1,5 +1,5 @@
 ---
-description: Guided implementation plan creation
+description: Guided development plan creation from algorithm specification
 argument-hint: Spec file path
 ---
 

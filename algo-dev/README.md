@@ -7,8 +7,8 @@ A systematic toolkit for algorithm development that helps you create specs, gene
 ### Commands
 
 - **`/create_or_update_spec`** - Create or update a detailed algorithm specification with input/output examples, edge cases, and constraints
-- **`/create_plan`** - Generate a structured implementation plan broken down into phases
-- **`/implement_plan`** - Execute the implementation plan phase-by-phase with testing and verification
+- **`/create_dev_plan_from_spec`** - Generate a structured development plan from a spec, broken down into phases
+- **`/execute_dev_plan`** - Execute the development plan phase-by-phase with testing and verification
 
 ### Agents
 
@@ -20,8 +20,8 @@ A systematic toolkit for algorithm development that helps you create specs, gene
 ## Usage
 
 1. Start with `/create_or_update_spec` to define your algorithm requirements
-2. Use `/create_plan` to break down the implementation into phases
-3. Execute with `/implement_plan` to build and verify each phase
+2. Use `/create_dev_plan_from_spec` to create a phased development plan from your spec
+3. Execute with `/execute_dev_plan` to build and verify each phase
 
 ## Version
 

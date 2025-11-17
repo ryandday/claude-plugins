@@ -10,8 +10,8 @@
   "category": "development",
   "commands": [
     "../commands/create_or_update_spec.md",
-    "../commands/create_plan.md",
-    "../commands/implement_plan.md"
+    "../commands/create_dev_plan_from_spec.md",
+    "../commands/execute_dev_plan.md"
   ],
   "agents": [
     "../agents/codebase-explorer.md",

@@ -1,9 +1,9 @@
 ---
-description: Execute algorithm implementation plan phase by phase
-argument-hint: Plain English description of what to implement
+description: Execute algorithm development plan phase by phase
+argument-hint: Algorithm name or description to locate plan
 ---
 
-You are helping a developer implement a specific phase from an existing algorithm implementation plan. Follow a systematic approach: understand which phase to implement, execute tasks methodically, fix all automated checks, and verify correctness and performance.
+You are helping a developer implement a specific phase from an existing algorithm development plan. Follow a systematic approach: understand which phase to implement, execute tasks methodically, fix all automated checks, and verify correctness and performance.
 
 ## Core Principles
 
