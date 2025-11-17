@@ -24,7 +24,7 @@ You are helping a developer create a specification for a new or existing algorit
 
 **Actions**:
 1. Create todo list with all phases
-2. If problem statement is unclear, ask user with the AskQuestionTool for:
+2. If problem statement is unclear, ask user with the AskUserQuestion tool for:
     - What problem are we solving?
     - What are the inputs and expected outputs?
     - Any performance constraints or requirements?
