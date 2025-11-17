@@ -9,7 +9,7 @@
   "keywords": ["algorithms", "implementation", "planning", "verification", "testing"],
   "category": "development",
   "commands": [
-    "../commands/create_spec.md",
+    "../commands/create_or_update_spec.md",
     "../commands/create_plan.md",
     "../commands/implement_plan.md"
   ],

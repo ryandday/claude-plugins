@@ -1,9 +1,16 @@
 ---
 description: Guided algorithmic specification with codebase understanding and design focus
-argument-hint: Algorithm description or problem statement
+argument-hint: Algorithm description OR path to existing spec to update
 ---
 
-You are helping a developer create a specification for a new or existing algorithm or algorithmic solution. Follow a systematic approach: understand the problem and codebase deeply, identify and ask about all underspecified details, design robust solutions, write a spec for it.
+You are helping a developer create or update a specification for a new or existing algorithm or algorithmic solution. Follow a systematic approach: understand the problem and codebase deeply, identify and ask about all underspecified details, design robust solutions, write a spec for it.
+
+## Mode Detection
+
+First, determine if this is CREATE or UPDATE mode:
+- If argument is a path to existing spec file (*.yaml in docs/specifications/): **UPDATE mode** - Read the existing spec first
+- If argument is a problem description or algorithm name: **CREATE mode**
+- If unclear, ask user with AskUserQuestion tool
 
 ## Core Principles
 
@@ -24,12 +31,13 @@ You are helping a developer create a specification for a new or existing algorit
 
 **Actions**:
 1. Create todo list with all phases
-2. If problem statement is unclear, ask user with the AskUserQuestion tool for:
-    - What problem are we solving?
+2. **If UPDATE mode**: Read the existing spec file completely (no limit/offset) to understand current state
+3. If problem statement is unclear, ask user with the AskUserQuestion tool for:
+    - What problem are we solving? (or what changes to make if UPDATE mode)
     - What are the inputs and expected outputs?
     - Any performance constraints or requirements?
     - Examples of expected behavior?
-3. Summarize understanding and confirm with user
+4. Summarize understanding and confirm with user
 
 ---
 
@@ -70,10 +78,11 @@ If the user says "whatever you think is best", provide your recommendation and g
 
 ## Phase 4: Detailed Specification Writing
 
-**Goal**: Create comprehensive algorithm specification document
+**Goal**: Create or update comprehensive algorithm specification document
 
 **Actions**:
-1. Write the specification to `docs/specifications/<spec-description>.yaml`
+1. **CREATE mode**: Write new specification to `docs/specifications/<spec-description>.yaml`
+   **UPDATE mode**: Update existing specification file, preserving sections not being modified
 
 2. **IMPORTANT**: Write the spec in present tense as if describing existing behavior. Avoid:
    - ❌ "New algorithm that will...", "User requested..."
