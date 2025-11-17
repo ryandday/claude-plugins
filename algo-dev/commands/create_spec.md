@@ -84,6 +84,7 @@ If the user says "whatever you think is best", provide your recommendation and g
 
 3. Use this template structure:
    - **Algorithm ordering**: List algorithms in call-graph order (callers before callees)
+   - **Granularity**: Only spec non-trivial logic. Inline simple CRUD/API calls as steps; extract complex algorithms as separate entries
 
 ```yaml
 # algo_spec: v1
@@ -106,6 +107,7 @@ constants:
     file: "[optional: path/to/file.ts:line]"
 
 algorithms:
+  # Only spec non-trivial operations with complex logic or important edge cases
   - id: [ALGO-NAME-functionName-01]  # e.g., BINARY-SEARCH-findPivot-01
     calls: ["ALGO-NAME-helperFunc-01"]  # What algorithms this depends on
     impl: "path/to/file.ts::functionName"  # Direct link to implementation
