@@ -20,8 +20,6 @@ This installs the commands and agents to `~/.claude/` so you can use them in Cla
 - **`/create_dev_plan_from_spec`** - Generate a structured development plan from a new or modified spec, broken down into phases
 - **`/execute_dev_plan`** - Execute the development plan phase-by-phase with testing and verification
 
-**Note**: These commands heavily utilize the claude code builtin [AskUserQuestion tool](https://code.claude.com/docs/en/tools/askuserquestion) to gather requirements, clarify ambiguities, and make decisions collaboratively throughout the process. Read documentation for better understanding of this tool to use it effectively.
-
 ### Agents
 
 **Used by `/create_or_update_spec`:**
