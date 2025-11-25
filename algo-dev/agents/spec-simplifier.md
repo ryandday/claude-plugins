@@ -1,7 +1,6 @@
 ---
 name: spec-simplifier
 description: Use this agent to determine if a specification should be split into multiple specs. It identifies when a spec tries to solve multiple distinct problems and would benefit from separation. \n\nExamples:\n<example>\nContext: User created a complex spec.\nuser: "I've written the spec for the data processing system"\nassistant: "I'll use the spec-simplifier agent to check if this should be split into separate specs."\n<commentary>\nUse spec-simplifier to determine if the spec is solving too many problems at once.\n</commentary>\n</example>
-model: sonnet
 color: yellow
 ---
 
