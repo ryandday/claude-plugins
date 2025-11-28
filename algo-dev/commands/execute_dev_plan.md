@@ -38,7 +38,7 @@ You are helping a developer implement a specific phase from an existing algorith
 **Goal**: Understand existing patterns before implementing
 
 **Actions**:
-1. Launch 2-3 code-explorer agents in parallel to explore different aspects relevant to this phase
+1. Launch 2-6 code-explorer agents in parallel to explore different aspects relevant to this phase
 2. Each agent should:
    - Focus on a different aspect based on what the phase implements
    - Trace through existing implementations comprehensively

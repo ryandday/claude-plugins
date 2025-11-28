@@ -46,7 +46,7 @@ First, determine if this is CREATE or UPDATE mode:
 **Goal**: Understand relevant existing algorithms and code patterns
 
 **Actions**:
-1. Launch 2-4 code-explorer agents in parallel. Each agent should:
+1. Launch 2-6 code-explorer agents in parallel. Each agent should:
    - Trace through similar algorithmic implementations comprehensively
    - Focus on understanding algorithm patterns, data structures used, and code organization
    - Target a different aspect (eg. similar algorithms, helper functions, data structure usage, testing patterns)
